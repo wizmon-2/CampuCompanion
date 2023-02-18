@@ -12,6 +12,7 @@ class Accounts(AbstractBaseUser, PermissionsMixin):
     iid = models.IntegerField()
     userid = models.IntegerField(unique=True)
     user_type = models.PositiveSmallIntegerField(choices=USER_TYPE_CHOICES)
+    groups = models.JSONField()
 
     name = models.CharField(max_length=255)
 

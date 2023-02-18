@@ -20,6 +20,7 @@ class RegisterAccountSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         account = Accounts(userid=validated_data['userid'], password=validated_data['password'], name=validated_data['name'], iid=validated_data['iid'], user_type=validated_data['user_type'])
+        account.groups = [validated_data['userid']]
         account.save()
 
         return account
